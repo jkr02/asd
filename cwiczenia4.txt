@@ -1,0 +1,23 @@
+zad1
+Posortować tablice A, która ma N elementow
+elementy A należą do [0, n^2-1]
+
+zad2
+Posortować tab A n-elementowa
+elementy A należa do B
+|B| ~ log(n)
+
+zad3
+Słowa A i B len = n
+Sprawdzić czy A i B są Anagramami
+a) O(n+k)
+b) O(n)
+
+zad4
+tab A zawierająca n parami różnych liczb
+znalezc x i y takie ze y-x jest 
+
+zad5
+tab kolorów zbior 0...k
+n kolorow znalezc najmniejszy przedzial kolorow
+i, j - indeksy, ze pomiedzy nimi sa wszystkie wartosci

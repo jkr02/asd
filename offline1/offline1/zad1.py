@@ -1,22 +1,16 @@
 # Jakub Kroczek
 # Ten algorytm sortowania w głównej mierze opiera się na sortowaniu Bubble-Sort i Merge-sort,
-# dla k=1 zrobiłem zmodyfikowanego Bubble-Sort, a wygląda to tak, że idziemy po tablicy
-# jeden raz (dla k>1 później tłumaczę dlaczego 1 raz przechodzę) i jak zamienię dwa kolejne elementy miejscami to będą
-# posortowane i nie muszę już sprawdzać czy ten drugi element jest większy od kolejnego, bo jest już posortowany, więc
-# przeskakuję o dwie pozycje
-# dla 1<k<=log(n) w pierwszym przejściu liczę "n" i sortuję od razu Bubble sortem. Następnie sprawdzam czy k<=log(n),
-# jeżeli zał. jest spełnione to jest to Bubble-Sort wiedząc że lista jest k-chaotyczna można wydedukować,
-# że przejdzimy po tablicy k razy, gdyż w jednej iteracji dany element zmienia położenie o conajmniej jedną
-# pozycję w kierunku miejsca, gdzie będzie się znajdowało na posortowanej pozycji. Lecz dałem tam, że główna pętla
-# przejdzie k-1 razy, gdyż przy wyliczaniu "n" już jest +1 iterację głównej pętli sortowane
-# dla k>log(n) jest to Merge-Sort, którego dokładniej opisuję już w środku kodu
+# dla k=1 zmodyfikowany Bubble-Sort, gdy są zamieniane dwa elementy to są już posortowane, więc wtedy następuje przeskok
+# o dwa elementy, a gdy nie są zamieniane to o jedną pozycję
+# dla 1<k<=log(n) w pierwszym przejściu liczę "n" i sortuję od razu Bubble sortem, a następnie jest Bubble-Sort,
+# w którym główna pętla wykonuje się k-1 razy, bo +1 raz się wykonała przy wyliczaniu "n"
+# dla k>log(n) jest to Merge-Sort
 # Złożoność czasowa:
 # k = Θ(1) => n
 # k = Θ(log n) => n*log(n)
 # k = Θ(n) => n*log(n)
 
 from zad1testy import Node, runtests
-
 
 def SortH(p, k):
     # tu prosze wpisac wlasna implementacje
@@ -58,7 +52,6 @@ def SortH(p, k):
             else:
                 pop = pom
                 pom = pom.next
-        # z def. logartmu log(n)=k, to 2**k=n
         if n >= 2**k:
             for _ in range(k-1):
                 pom = first
@@ -78,7 +71,6 @@ def SortH(p, k):
                         pop = pom
                         pom = pom.next
         else:
-            # Jak to w Merge-Sort scalanie dwóch posortowanych list
             def scal_dwie_listy(a, b):
                 if a.val <= b.val:
                     result = a
@@ -101,9 +93,6 @@ def SortH(p, k):
                 if b != None:
                     pom.next = b
                 return result
-
-            # szukanie środkowego elementu poprzez dwa wskaźniki które idą z predkością s=2i, w=i, gdy "s" dojdzie
-            # do końca to "w" będzie w połowie
             def stworz_sr(pocz):
                 s = pocz
                 w = pocz
@@ -111,9 +100,6 @@ def SortH(p, k):
                     s = s.next.next
                     w = w.next
                 return w
-            # tworzenie 2 list potem z tych dwóch po kolejne dwie z każdej z tych dwóch list itd.
-            # są one tworzone poprzez rozłączenie jednej listy w dwie listy itd., które potem będą scalane
-            # w funkcji scal_dwie_listy()
             def merge_sort(t):
                 if t == None or t.next == None:
                     return t
