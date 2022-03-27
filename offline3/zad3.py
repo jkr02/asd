@@ -1,6 +1,8 @@
 # Jakub Kroczek
 # Program tworzy kubełki o długości 10, wsadzane są do niego watości i sortowane dla liczby elementów w kubełku <=100
-# jest to insertion-sort, dla wiekszych merge-sort, nastepnie kolejne wartości z kubełków są wsadzane do tablicy
+# jest to insertion-sort, dla wiekszych merge-sort, nastepnie kolejne wartości z kubełków są wsadzane do listy
+# Złożoność czasowa: pesymistyczna nlog(n)
+# Złożoność pamięciowa: pesymistyczna n+k
 
 
 
