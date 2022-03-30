@@ -103,16 +103,37 @@ def Quick_sort(T):
         return i+1
 
     def quick_sort(t, l, r):
-        if r>l:
+        while l<r:
             p = Partition(t, l, r)
             quick_sort(t, l, p-1)
-            quick_sort(t, p+1, r)
+            l=p+1
     quick_sort(T, 0, len(T)-1)
 
-tab = [randint(-10**4, 10**4) for _ in range(30)]
+def Heap_sort(T):
+    def heapify(tab, n, i):
+        maksimum = i
+        l=2*i
+        p=2*i+1
+        if l<n and tab[l]>tab[maksimum]:
+            maksimum=l
+        if p<n and tab[p]>tab[maksimum]:
+            maksimum=p
+        if maksimum!=i:
+            tab[i], tab[maksimum] = tab[maksimum], tab[i]
+            heapify(tab, n, maksimum)
+    def heap_sort(tab):
+        n=len(tab)
+        for i in range(n//2-1, -1, -1):
+            heapify(tab, n, i)
+        for i in range(n-1, 0, -1):
+            tab[i], tab[0] = tab[0], tab[i]
+            heapify(tab, i, 0)
+    heap_sort(T)
+
+tab = [randint(-10**4, 10**4) for _ in range(10**6)]
 tab1=tab.copy()
 start=time()
-Quick_sort(tab)
+Heap_sort(tab)
 stop=time()
-print(tab)
+#print(tab)
 print(stop-start, "s", sep="")

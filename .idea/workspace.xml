@@ -35,7 +35,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="RunManager" selected="Python.zad2">
+  <component name="RunManager" selected="Python.algorytmy_sortowania">
     <configuration name="algorytmy_sortowania" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="asd" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -101,9 +101,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.algorytmy_sortowania" />
         <item itemvalue="Python.zad2" />
         <item itemvalue="Python.zad1" />
-        <item itemvalue="Python.algorytmy_sortowania" />
       </list>
     </recent_temporary>
   </component>
