@@ -121,14 +121,12 @@ def Heap_sort(T):
         if maksimum!=i:
             tab[i], tab[maksimum] = tab[maksimum], tab[i]
             heapify(tab, n, maksimum)
-    def heap_sort(tab):
-        n=len(tab)
-        for i in range(n//2-1, -1, -1):
-            heapify(tab, n, i)
-        for i in range(n-1, 0, -1):
-            tab[i], tab[0] = tab[0], tab[i]
-            heapify(tab, i, 0)
-    heap_sort(T)
+    n=len(T)
+    for i in range(n//2-1, -1, -1):
+        heapify(T, n, i)
+    for i in range(n-1, 0, -1):
+        T[i], T[0] = T[0], T[i]
+        heapify(T, i, 0)
 
 tab = [randint(-10**4, 10**4) for _ in range(10**6)]
 tab1=tab.copy()
