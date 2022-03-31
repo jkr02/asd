@@ -1,0 +1,1 @@
+def suma_liczb(): pass
