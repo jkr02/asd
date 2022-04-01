@@ -16,8 +16,6 @@ def string_sort(T):
             for k in range(len(tab[j])):
                 T[licznik] = tab[j][k]
                 licznik+=1
-    return
-
 T = ["abcd", "pap", "xdddd", "int", "abc", "apf"]
 string_sort(T)
 print(T)

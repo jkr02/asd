@@ -33,9 +33,9 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../kolos1" />
   </component>
-  <component name="RunManager" selected="Python.zad5">
+  <component name="RunManager" selected="Python.zad1">
     <configuration name="algorytmy_sortowania" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="asd" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -78,7 +78,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="zad2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="zad1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="asd" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -90,7 +90,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/asd-main-2020-2021-kol1_szablony/2020-2021/kol1_szablony/zad2.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/asd-main-2020-2021-kol1_szablony/2020-2021/kol1_szablony/zad1.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -143,11 +143,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.zad1" />
         <item itemvalue="Python.zad5" />
         <item itemvalue="Python.zad4" />
         <item itemvalue="Python.zad1 (1)" />
         <item itemvalue="Python.algorytmy_sortowania" />
-        <item itemvalue="Python.zad2" />
       </list>
     </recent_temporary>
   </component>
