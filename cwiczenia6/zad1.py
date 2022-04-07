@@ -1,0 +1,1 @@
+#funkcja sprawdza czy da sie wybrac podciag z tablicy A, które sumuja sie do zadanej wartosci T
