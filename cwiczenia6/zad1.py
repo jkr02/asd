@@ -1,7 +1,7 @@
 #funkcja sprawdza czy da sie wybrac podciag z tablicy A, które sumuja sie do zadanej wartosci T
 from random import randint
-A=[randint(1, 14923) for _ in range(10)]
-T = 1748323
+A = [1,5,3,0,4,12]
+T = 11
 def rekursive(i, suma):
     global A
     for x in range(i, len(A)):
@@ -23,6 +23,6 @@ def subset(A, T):
         for j in range(T+1):
             F[i][j]=F[i-1][j]
             if j-A[i]>=0:
-                F[i][j]=F[i-1][j-A[i]]
+                F[i][j]+=F[i-1][j-A[i]]
     return F[n-1][T]
 print(subset(A, T))
