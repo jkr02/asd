@@ -1,0 +1,1 @@
+# lewy i prawy pas. ulozyc auta (kazde ma swoja dlugosc), tak aby zeby na promie bylo jak najwiecej aut

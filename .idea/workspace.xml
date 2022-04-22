@@ -35,7 +35,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="RunManager" selected="Python.drzewa">
+  <component name="RunManager" selected="Python.zad4">
     <configuration name="drzewa" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="asd" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -120,7 +120,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="suma_podzbioru" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="zad4" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="asd" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -128,11 +128,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/algorytmy dynamiczne" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/offline4" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/algorytmy dynamiczne/suma_podzbioru.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/offline4/zad4.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -143,11 +143,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.zad4" />
+        <item itemvalue="Python.problem_plecakowy_dyskretny" />
         <item itemvalue="Python.drzewa" />
         <item itemvalue="Python.nawiasowanie__macierzy" />
         <item itemvalue="Python.najwiekszy_wspolny_podciag" />
-        <item itemvalue="Python.problem_plecakowy_dyskretny" />
-        <item itemvalue="Python.suma_podzbioru" />
       </list>
     </recent_temporary>
   </component>
