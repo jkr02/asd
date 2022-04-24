@@ -1,3 +1,13 @@
+# Jakub Kroczek
+# Sortuje tablice T, względem współrzednej "b", nastepnie tworze tablice o wymiarze n * (p+1), w której zapisuję wyniki
+# najlepszych dopasowań budynków do kosztów, dla budynków które są wcześniej w posortowanej tablicy.
+# Aby znaleźć najlepsze dopasowanie dla "i", to przeszukuję wszystkie poprzednie wartości w kolumnie j-(koszt budynku) i
+# znajduję najlepsze dopasowanie, które ma współrzędną "a" mniejszą od spółrzędnej "b" i-tego elementu i posiada
+# największą wartość i porównuję z elementem tab[i-1][j] i biorę najlepszy z tych dwóch.
+# Aby znaleźć najlepszy element znajduję w tab[n-1] ten który pomieści najwięcej studentów
+# złożoność czasowa: n^2 * p
+# złożoność pamięciowa: n * p
+
 from zad4testy import runtests
 
 def select_buildings(T,p):
@@ -7,12 +17,9 @@ def select_buildings(T,p):
         indeksy=[x for x in range(n)]
         for y in range(n):
             for x in range(n - y - 1):
-                if T[x][1] > T[x + 1][1]:
+                if T[x][2] > T[x + 1][2]:
                     T[x], T[x + 1] = T[x + 1], T[x]
                     indeksy[x], indeksy[x+1] = indeksy[x+1], indeksy[x]
-                elif T[x][1] >= T[x + 1][1] and T[x][2]<T[x+1][2]:
-                    T[x], T[x + 1] = T[x + 1], T[x]
-                    indeksy[x], indeksy[x + 1] = indeksy[x + 1], indeksy[x]
         return T, indeksy
     P, indeksy=Bubble_sort(T)
     tab = [[[0] for _ in range(p+1)] for _ in range(n+1)]
@@ -42,7 +49,6 @@ def select_buildings(T,p):
             max_sum=tab[n-1][i][0]
     for i in range(1, len(tab[n-1][max_k])):
         tab[n-1][max_k][i] = indeksy[tab[n-1][max_k][i]]
-    # tu prosze wpisac wlasna implementacje
     return tab[n-1][max_k][1:]
 
 runtests( select_buildings )
