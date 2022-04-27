@@ -159,10 +159,10 @@ def select(T, p, k, r):
         else:
             return select(T, p, k, q-1)
 
-tab = [randint(-10**4, 10**4) for _ in range(10**6)]
-tab1=tab.copy()
+tab = [randint(0, 10**4) for _ in range(10501)]
+# tab1=tab.copy()
 start=time()
-Heap_sort(tab)
+tab.sort()
 stop=time()
 #print(tab)
 print(stop-start, "s", sep="")
