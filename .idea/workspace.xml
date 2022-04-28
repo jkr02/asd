@@ -35,8 +35,8 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="RunManager" selected="Python.wydawanie_monet">
-    <configuration name="algorytmy_sortowania" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.problem_stacji_benzynowych">
+    <configuration name="problem_stacji_benzynowych" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="asd" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -44,11 +44,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/cwiczenia8" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/algorytmy_sortowania.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/cwiczenia8/problem_stacji_benzynowych.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -143,11 +143,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.problem_stacji_benzynowych" />
+        <item itemvalue="Python.zad5" />
         <item itemvalue="Python.wydawanie_monet" />
         <item itemvalue="Python.wedrowka_po_szachownicy" />
-        <item itemvalue="Python.zad5" />
         <item itemvalue="Python.testy" />
-        <item itemvalue="Python.algorytmy_sortowania" />
       </list>
     </recent_temporary>
   </component>

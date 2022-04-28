@@ -20,7 +20,5 @@ def plan(T):
         tab.append(indeks)
     tab.sort()
     return tab
-
-
 # zmien all_tests na True zeby uruchomic wszystkie testy
 runtests( plan, all_tests = True )
