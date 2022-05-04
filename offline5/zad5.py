@@ -1,6 +1,10 @@
-# f(i, j)-najmniejsza liczba postojów z największą ceną
-# f(0, j)=T[0]
-# f(i, j)=min(
+# Jakub Kroczek
+# Tworzę kolejkę priorytetową w której umieszczam przystanki od najwiekszej ilosci ropy do najmniejszej z zasięgu na
+# jaki mozemy dojechac (od 0 do suma). W petli while pozyskuje i zapisuję w tablicy najlepsze przystanki ktore zapewnią
+# najwiekszy zasięg przy najmniejszej ilosci przystanków. Na końcu sortuję przystanki w kojeności od pierwszego
+# przystanku do ostatniego
+# złożoność czasowa: n*log(n)
+# złożoność pamięciowa: n
 import queue
 
 from zad5testy import runtests
