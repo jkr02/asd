@@ -3,8 +3,8 @@ import collections
 from zad6testy import runtests
 
 def longer( G, s, t ):
-    flag=0
-    print(len(G))
+    tab=[]
+    tab1=[]
     Q = collections.deque()
     class wierzcholek:
         def __init__(self):
@@ -22,67 +22,27 @@ def longer( G, s, t ):
                 wierzcholki[G[u][i]].d=wierzcholki[u].d+1
                 wierzcholki[G[u][i]].parent=u
                 Q.append(G[u][i])
-        #     if G[u][i] == t:
-        #         flag=1
-        #         break
-        # if flag == 1:
-        #     flag=0
-        #     break
-    print(wierzcholki[t].d)
-    k=t
-    # for i in range(wierzcholki[t].d):
-    #     a=k
-    #     k=wierzcholki[a].parent
-    #     tab=G.copy()
-    #     tab[a].remove(k)
-    #     tab[k].remove(a)
-    #     w = [wierzcholek() for _ in range(len(G))]
-    #     P=collections.deque()
-    #     w[s].visited=True
-    #     P.append(s)
-    #     while len(P)>0:
-    #         u = P.popleft()
-    #         for i in range(len(tab[u])):
-    #             if not w[tab[u][i]].visited:
-    #                 w[tab[u][i]].visited = True
-    #                 w[tab[u][i]].d = w[u].d + 1
-    #                 w[tab[u][i]].parent = u
-    #                 P.append(tab[u][i])
-    #     if w[t].visited==False:
-    #         return (a, k)
-    #     if w[t].d > wierzcholki[t].d:
-    #         return (a, k)
-    # return None
-    for i in range(wierzcholki[t].d):
-        a=k
-        k=wierzcholki[a].parent
-        G[a].remove(k)
-        G[k].remove(a)
-        w = [wierzcholek() for _ in range(len(G))]
-        P=collections.deque()
-        w[s].visited=True
-        P.append(s)
-        while len(P)>0:
-            u = P.popleft()
-            for i in range(len(G[u])):
-                if not w[G[u][i]].visited:
-                    w[G[u][i]].visited = True
-                    w[G[u][i]].d = w[u].d + 1
-                    w[G[u][i]].parent = u
-                    P.append(G[u][i])
-            #         if G[u][i] == t:
-            #             flag=1
-            #             break
-            # if flag == 1:
-            #     flag=0
-            #     break
-        if w[t].visited==False:
-            return (a, k)
-        if w[t].d > wierzcholki[t].d:
-            return (a, k)
-        G[a].append(k)
-        G[k].append(a)
-    return None
-
+            elif G[u][i]==t and wierzcholki[u].d==wierzcholki[t].d-1:
+                wierzcholki.append(wierzcholek())
+                wierzcholki[-1].visited=True
+                wierzcholki[-1].d=wierzcholki[u].d+1
+                wierzcholki[-1].parent=u
+    x=t
+    while wierzcholki[x].parent!=None:
+        tab.append([x, wierzcholki[x].parent])
+        x=wierzcholki[x].parent
+    for i in range(len(G), len(wierzcholki)):
+        if [t, wierzcholki[i].parent] in tab:
+            tab1.append([t, wierzcholki[i].parent])
+        x = wierzcholki[i].parent
+        while wierzcholki[x].parent!=None:
+            if [x, wierzcholki[x].parent] in tab:
+                tab1.append([x, wierzcholki[x].parent])
+            x = wierzcholki[x].parent
+        tab = tab1.copy()
+        tab1 = []
+    if len(tab)==0:
+        return None
+    return tab[0]
 # zmien all_tests na True zeby uruchomic wszystkie testy
 runtests( longer, all_tests = True )
