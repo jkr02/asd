@@ -1,3 +1,13 @@
+# Jakub Kroczek
+# tworze klase, ktora zawiera najmniejsza dlugosc do poczatkowego wierzcholka 's', nastepnie algorytmem BFS szukam i
+# zapisuje te dlugosci. Nastepnie sprawdzam od wierzcholka 't' jego sasiadow, ktorzy maja dlugosc do 's' rowna dlugosci
+# od 't' do 's' - 1 i zapisuje wszytkie w tablicy, ktore spelniaja to zalozenie. nastepnie sprawdzam dla tych
+# wierzcholkow podobnie jak dla 't', gdy w tablicy poprzednikow bedzie jeden element i w terazniejszej rowniez jeden
+# element, to oznacza ze przez te krawedz przebiegaja wszystkie najktotsze sciezki z 's' do 't', jesli takiej nie
+# znajdziemy to oznacza ze nie ma takiej krawedzi przez ktore przechodzily by wszystkie najkrotsze sciezki (trzeba
+# zwrocic 'NONE')
+# zlozonosc czasowa: G+V
+# zlozonosc pamieciowa: G
 import collections
 
 from zad6testy import runtests
@@ -8,17 +18,15 @@ def longer( G, s, t ):
         def __init__(self):
             self.d=0
             self.visited=False
-            self.parent=None
     wierzcholki=[wierzcholek() for _ in range(len(G))]
     wierzcholki[s].visited=True
     Q.append(s)
-    while len(Q)>0:
+    while Q:
         u = Q.popleft()
         for i in range(len(G[u])):
             if not wierzcholki[G[u][i]].visited:
                 wierzcholki[G[u][i]].visited=True
                 wierzcholki[G[u][i]].d=wierzcholki[u].d+1
-                wierzcholki[G[u][i]].parent=u
                 Q.append(G[u][i])
     pop=[t]
     tmp=[]
