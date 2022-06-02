@@ -1,3 +1,10 @@
+# Jakub Kroczek
+# na początek tworzę listę krawędzi i sortuję ją niemalejąco, potem tworzę dwa wskaźniki i=0 j=n-2 (bo zeby graf był
+# spojny to musi mieć co najmniej n-1 krawędzi) i jeżeli graf jest spójny to sprawdzam różnicę pomiędzy
+# długościami 'j' i 'i' jezeli mniejsza od dotychczasowej najmniejszej to nadpisuję, oraz zwiekszam 'i', jezeli graf
+# nie jest spójny to zwiększam 'j', robię to dopóki j<n
+# złożoność czasowa: n^4
+# złożoność pamięciowa: n^2
 import collections
 
 from zad8testy import runtests
@@ -35,10 +42,16 @@ def highway( A ):
     j=n-2
     minimum = tab[-1][2]-tab[0][2]+1
     t = [[] for _ in range(n)]
+    d=len(tab)
     for x in range(0, j + 1):
         t[tab[x][0]].append(tab[x][1])
         t[tab[x][1]].append(tab[x][0])
-    while j<n:
+    while True:
+        if minimum<tab[j][2]-tab[i][2]:
+            t[tab[i][0]].pop(0)
+            t[tab[i][1]].pop(0)
+            i += 1
+            continue
         if bfs():
             if minimum>tab[j][2]-tab[i][2]:
                 minimum=tab[j][2]-tab[i][2]
@@ -47,11 +60,10 @@ def highway( A ):
             i+=1
             continue
         j+=1
+        if j==d:
+            break
         t[tab[j][0]].append(tab[j][1])
         t[tab[j][1]].append(tab[j][0])
     return minimum
-
-    # tu prosze wpisac wlasna implementacje
-
 # zmien all_tests na True zeby uruchomic wszystkie testy
 runtests( highway, all_tests = True )

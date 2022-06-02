@@ -1,5 +1,5 @@
 # zad6test_spec.py
-
+#
 ALLOWED_TIME = 1000
 
 from random import randint,shuffle
