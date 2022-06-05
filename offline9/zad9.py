@@ -35,9 +35,6 @@ def maxflow( G,s ):
                 tablica[v][u] += path_flow
                 v = parent[v]
         return max_flow
-
-
-
     n=0
     for i in range(len(G)):
         if G[i][0]>n:
@@ -48,24 +45,18 @@ def maxflow( G,s ):
     tab = [[0 for _ in range(n+1)] for _ in range(n+1)]
     for i in G:
         tab[i[0]][i[1]]=i[2]
-    # for i in range(n+1):
-    #     print(tab[i])
-    # print()
     maksimum=0
     for i in range(n):
         if i != s:
             tab[i][-1] = float('Inf')
             for j in range(i+1, n):
                 if j != s:
-                    if sum(tab[:-1][i]) + sum(tab[:-1][j]) <= maksimum:
-                        tab[j][-1]=0
-                    else:
-                        tab[j][-1] = float('Inf')
-                        t=copy.deepcopy(tab)
-                        temp = ford_fulkerson(t, s, n)
-                        if temp > maksimum:
-                            maksimum = temp
-                        tab[j][-1] = 0
+                    tab[j][-1] = float('Inf')
+                    t=copy.deepcopy(tab)
+                    temp = ford_fulkerson(t, s, n)
+                    if temp > maksimum:
+                        maksimum = temp
+                    tab[j][-1] = 0
             tab[i][-1] = 0
     return maksimum
 
