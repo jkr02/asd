@@ -90,18 +90,16 @@ def Selection_sort(T):
                 minimal=T[y]
                 indeks = y
         T[x], T[indeks] = T[indeks], T[x]
-
+def Partition(t, l, r):
+    x=t[r]
+    i=l-1
+    for j in range(l, r):
+        if t[j]<=x:
+            i+=1
+            t[i], t[j] = t[j], t[i]
+    t[i+1], t[r] = t[r], t[i+1]
+    return i+1
 def Quick_sort(T):
-    def Partition(t, l, r):
-        x=t[r]
-        i=l-1
-        for j in range(l, r):
-            if t[j]<=x:
-                i+=1
-                t[i], t[j] = t[j], t[i]
-        t[i+1], t[r] = t[r], t[i+1]
-        return i+1
-
     def quick_sort(t, l, r):
         while l<r:
             p = Partition(t, l, r)
