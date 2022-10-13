@@ -1,12 +1,16 @@
 def kruskal(G, n):
-    G.sort(key=lambda e: e[2])
+    """reprezentacja krawedziowa
+    znajdowanie mst - minimalne drzewo rozpinajace
+    graf posortowany (krawedzie niemalejaco): E*log*(E, V) - odwrotnosc funkcji ackermana
+    graf nieposortowany: Elog(V)"""
+    G.sort(key=lambda x: x[2]) # Gdy posortowany można opuścić
     A = [Node(x) for x in range(n)]
     res = []
-    for e in G:
-        n1 = A[e[0]]
-        n2 = A[e[1]]
+    for x in G:
+        n1 = A[x[0]]
+        n2 = A[x[1]]
         if not contains_cycle(n1, n2):
-            res.append(e)
+            res.append(x)
     return res
 def contains_cycle(n1,n2):
     first = find(n1)
@@ -43,6 +47,10 @@ def union(x, y):
 ##################################################
 from queue import PriorityQueue
 def prims(G):
+    """
+    reprezentacja krawedziowa
+    Elog(V)
+    """
     n = len(G)
     q = PriorityQueue()
     q.put((0, 0))
@@ -71,3 +79,41 @@ def prims(G):
                 break
         res.append([parents[i], i, weight])
     return res
+################################
+def Kruscal(G, n):
+    G.sort(key=lambda x: x[2])
+    result = []
+    t=[klasa(i) for i in range(n)]
+    for e in G:
+        a=znajdz(t[e[0]])
+        b=znajdz(t[e[1]])
+        if not ma_cykl(a, b):
+            result.append((e[0], e[1]))
+    return result
+class klasa:
+    def __init__(self, value):
+        self.parent=self
+        self.value=value
+        self.rank=0
+def znajdz(i):
+    if i.parent!=i:
+        i.parent=znajdz(i)
+    return i.parent
+def unia(x, y):
+    x = znajdz(x)
+    y = znajdz(y)
+    if x.rank==y.rank:
+        return
+    if x.rank>y.rank:
+        y.parent=x
+    else:
+        x.parent=y
+        if x.rank==y.rank:
+            y.rank+=1
+def ma_cykl(x, y):
+    x = znajdz(x)
+    y = znajdz(y)
+    if x==y:
+        return True
+    unia(x, y)
+    return False

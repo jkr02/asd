@@ -1,5 +1,17 @@
 from random import randint
 from time import time
+
+def binary_search(arr, low, high, x):
+    if high >= low:
+        mid = (high + low) // 2
+        if arr[mid] == x:
+            return mid
+        elif arr[mid] > x:
+            return binary_search(arr, low, mid - 1, x)
+        else:
+            return binary_search(arr, mid + 1, high, x)
+    else:
+        return -1
 def Bubble_sort(T):
     n=len(T)
     for y in range(n):
@@ -44,8 +56,20 @@ def Merge_sort(T):
             T[k]=p[j]
             j+=1
             k+=1
-
-def Counting_sort(T):
+def countingSort(array):
+    size = len(array)
+    output = [0] * size
+    count = [0] * 10
+    for i in range(0, size):
+        count[array[i]] += 1
+    for i in range(1, 10):
+        count[i] += count[i - 1]
+    i = size - 1
+    while i >= 0:
+        output[count[array[i]] - 1] = array[i]
+        count[array[i]] -= 1
+        i -= 1
+def Counting_sort_mod(T):
     minimal = min(T)
     maximal = max(T)
     t=[[] for _ in range(maximal-minimal+1)]
@@ -157,10 +181,31 @@ def select(T, p, k, r):
         else:
             return select(T, p, k, q-1)
 
-tab = [randint(0, 10**4) for _ in range(10501)]
+# tab = [randint(0, 10**4) for _ in range(10501)]
 # tab1=tab.copy()
-start=time()
-tab.sort()
-stop=time()
+# start=time()
+# tab.sort()
+# stop=time()
 #print(tab)
-print(stop-start, "s", sep="")
+# print(stop-start, "s", sep="")
+#############################
+def partit(A, p, r):
+    x=A[r]
+    i=p-1
+    for j in range(p, r):
+        if A[j]<=x:
+            i+=1
+            A[i], A[j]=A[j],A[i]
+    A[i+1], A[r]=A[r], A[i+1]
+    return i+1
+def sel(A, p, k, r):
+    if p==r:
+        return A[p]
+    if p<r:
+        q=partit(A, p, r)
+        if q==k: return A[q]
+        elif q<k: return sel(A, q+1, k, r)
+        else: return sel(A, p, k, q-1)
+t=[5, 2, 1, 4, 2, 3, 7]
+Merge_sort(t)
+print(t)

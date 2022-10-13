@@ -75,5 +75,49 @@ suma = 0
 # for i in range(1, 10000000):
 #     suma-=1/(2*i-1)
 #     suma+=1/(2*i)
-# print(suma)
-print(float('inf')==float('inf')+1)
+# # print(suma)
+# print(float('inf')==float('inf')+1)
+from collections import defaultdict
+
+class Graph:
+    def __init__(self, vertices):
+        self.graph = defaultdict(list)  # dictionary containing adjacency List
+        self.V = vertices  # No. of vertices
+    def addEdge(self, u, v):
+        self.graph[u].append(v)
+    def topologicalSortUtil(self, v, visited, stack):
+        visited[v] = True
+        for i in self.graph[v]:
+            if visited[i] == False:
+                self.topologicalSortUtil(i, visited, stack)
+        stack.insert(0, v)
+    def topologicalSort(self):
+        visited = [False] * self.V
+        stack = []
+        for i in range(self.V):
+            if visited[i] == False:
+                self.topologicalSortUtil(i, visited, stack)
+        return stack
+# g=Graph(4)
+# g.addEdge(2, 0)
+# g.addEdge(3, 0)
+# g.addEdge(1, 2)
+# g.addEdge(3, 2)
+# g.addEdge(1, 3)
+# g.topologicalSort()
+def swaps(disk, depends):
+    g=Graph(len(depends))
+    for u in range(len(depends)):
+        for v in range(len(depends[u])):
+            g.addEdge(u, depends[u][v])
+    stack = g.topologicalSort()
+    i=-1
+    zmian=0
+    for j in range(1, len(depends)):
+        i+=1
+        if stack[i]%2==0 and stack[i]+1==stack[j]:
+            continue
+        zmian+=1
+    return zmian
+tab=[[2,3],[],[1, 3], [1]]
+print(swaps(0, tab))
